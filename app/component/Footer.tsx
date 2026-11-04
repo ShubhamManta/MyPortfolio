@@ -15,6 +15,23 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
+    e.preventDefault();
+    const target = document.getElementById(id);
+    if (target) {
+      const topOffset = 80;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - topOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (newsletterEmail) {
@@ -29,12 +46,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/5">
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-4">
-            <a href="#home" className="flex items-center gap-3 group">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-amber-500 text-black font-black text-lg tracking-tighter">
+            <a
+              href="#home"
+              onClick={(e) => handleNavClick(e, "home")}
+              className="flex items-center gap-3 group cursor-pointer"
+            >
+              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-amber-500 text-black font-black text-lg tracking-tighter shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
                 SM
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-white text-base tracking-wide uppercase">
+                <span className="font-bold text-white text-base tracking-wide uppercase group-hover:text-amber-400 transition-colors">
                   {profile.name}
                 </span>
                 <span className="text-[10px] font-medium tracking-widest text-slate-400 uppercase">
@@ -48,39 +69,72 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links with smooth scroll */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-widest text-white">
               Quick Links
             </h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li>
-                <a href="#home" className="hover:text-amber-400 transition-colors">
+                <a
+                  href="#home"
+                  onClick={(e) => handleNavClick(e, "home")}
+                  className="hover:text-amber-400 transition-colors"
+                >
                   Home
                 </a>
               </li>
               <li>
-                <a href="#about" className="hover:text-amber-400 transition-colors">
+                <a
+                  href="#about"
+                  onClick={(e) => handleNavClick(e, "about")}
+                  className="hover:text-amber-400 transition-colors"
+                >
                   About
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-amber-400 transition-colors">
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, "services")}
+                  className="hover:text-amber-400 transition-colors"
+                >
                   Services
                 </a>
               </li>
               <li>
-                <a href="#projects" className="hover:text-amber-400 transition-colors">
+                <a
+                  href="#skills"
+                  onClick={(e) => handleNavClick(e, "skills")}
+                  className="hover:text-amber-400 transition-colors"
+                >
+                  Skills
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#projects"
+                  onClick={(e) => handleNavClick(e, "projects")}
+                  className="hover:text-amber-400 transition-colors"
+                >
                   Projects
                 </a>
               </li>
               <li>
-                <a href="#testimonials" className="hover:text-amber-400 transition-colors">
+                <a
+                  href="#testimonials"
+                  onClick={(e) => handleNavClick(e, "testimonials")}
+                  className="hover:text-amber-400 transition-colors"
+                >
                   Testimonials
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-amber-400 transition-colors">
+                <a
+                  href="#contact"
+                  onClick={(e) => handleNavClick(e, "contact")}
+                  className="hover:text-amber-400 transition-colors"
+                >
                   Contact
                 </a>
               </li>
@@ -94,22 +148,38 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li>
-                <a href="#services" className="hover:text-amber-400 transition-colors">
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, "services")}
+                  className="hover:text-amber-400 transition-colors"
+                >
                   Web Development
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-amber-400 transition-colors">
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, "services")}
+                  className="hover:text-amber-400 transition-colors"
+                >
                   Backend Development
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-amber-400 transition-colors">
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, "services")}
+                  className="hover:text-amber-400 transition-colors"
+                >
                   UI/UX Implementation
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-amber-400 transition-colors">
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, "services")}
+                  className="hover:text-amber-400 transition-colors"
+                >
                   Performance Optimization
                 </a>
               </li>
@@ -176,7 +246,7 @@ export default function Footer() {
             </p>
 
             {isSubscribed ? (
-              <span className="text-xs text-amber-400 font-medium block">
+              <span className="text-xs text-amber-400 font-medium block animate-fade-in-up">
                 ✓ Thanks for subscribing!
               </span>
             ) : (
@@ -200,14 +270,14 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Row */}
+        {/* Bottom Row with Animated Back to top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© 2026 {profile.name}. All rights reserved.</p>
 
           {/* Back to top button */}
           <button
             onClick={scrollToTop}
-            className="w-8 h-8 rounded-lg bg-[#121826] border border-white/10 text-slate-300 hover:text-amber-400 hover:border-amber-500/40 flex items-center justify-center transition-all cursor-pointer"
+            className="w-8 h-8 rounded-lg bg-[#121826] border border-white/10 text-slate-300 hover:text-amber-400 hover:border-amber-500/40 hover:-translate-y-0.5 flex items-center justify-center transition-all cursor-pointer shadow-sm"
             aria-label="Back to top"
           >
             <ChevronUp className="w-4 h-4" />

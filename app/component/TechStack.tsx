@@ -21,30 +21,30 @@ export default function TechStack() {
   const getTechIcon = (name: string) => {
     switch (name.toLowerCase()) {
       case "javascript":
-        return <JavaScriptIcon className="w-7 h-7" />;
+        return <JavaScriptIcon className="w-8 h-8" />;
       case "typescript":
-        return <TypeScriptIcon className="w-7 h-7" />;
+        return <TypeScriptIcon className="w-8 h-8" />;
       case "react":
-        return <ReactIcon className="w-7 h-7" />;
+        return <ReactIcon className="w-8 h-8" />;
       case "next.js":
-        return <NextjsIcon className="w-7 h-7" />;
+        return <NextjsIcon className="w-8 h-8" />;
       case "node.js":
-        return <NodejsIcon className="w-7 h-7" />;
+        return <NodejsIcon className="w-8 h-8" />;
       case "express.js":
         return (
-          <span className="text-sm font-black tracking-tighter text-white font-mono bg-white/10 px-1.5 py-0.5 rounded">
+          <span className="text-sm font-black tracking-tighter text-white font-mono bg-white/10 px-2 py-0.5 rounded">
             ex
           </span>
         );
       case "mongodb":
-        return <MongoDBIcon className="w-7 h-7" />;
+        return <MongoDBIcon className="w-8 h-8" />;
       case "postgresql":
-        return <PostgresIcon className="w-7 h-7" />;
+        return <PostgresIcon className="w-8 h-8" />;
       case "tailwind css":
-        return <TailwindIcon className="w-7 h-7" />;
+        return <TailwindIcon className="w-8 h-8" />;
       case "git":
       default:
-        return <GitIcon className="w-7 h-7" />;
+        return <GitIcon className="w-8 h-8" />;
     }
   };
 
@@ -61,14 +61,14 @@ export default function TechStack() {
           </h2>
         </div>
 
-        {/* Technologies Grid (Matching Image 2) */}
+        {/* Technologies Grid (Matching Image 2 with animated hover effects) */}
         <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 max-w-5xl mx-auto">
           {techStack.map((tech) => (
             <div
               key={tech.name}
-              className="flex flex-col items-center justify-center min-w-[90px] sm:min-w-[105px] py-4 px-3 rounded-2xl bg-[#111724]/90 border border-white/5 hover:border-amber-500/40 hover:bg-[#161e30] transition-all duration-300 hover:-translate-y-1 group shadow-md shadow-black/30"
+              className="flex flex-col items-center justify-center min-w-[95px] sm:min-w-[110px] py-4 px-3 rounded-2xl bg-[#111724]/90 border border-white/5 hover:border-amber-500/40 hover:bg-[#161e30] transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-xl hover:shadow-amber-500/10 group cursor-default"
             >
-              <div className="h-9 flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform">
+              <div className="h-10 flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform duration-300">
                 {getTechIcon(tech.name)}
               </div>
               <span className="text-xs font-semibold text-slate-300 group-hover:text-white transition-colors text-center">

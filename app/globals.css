@@ -36,36 +36,100 @@ body {
 
 /* Subtle dot-grid pattern */
 .bg-tech-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
 /* Glowing Amber Ring Animation */
-@keyframes ringPulse {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
+@keyframes ringOrbit {
+  0% {
+    transform: rotate(0deg) scale(1);
     opacity: 0.85;
   }
   50% {
-    transform: scale(1.02) rotate(180deg);
+    transform: rotate(180deg) scale(1.02);
     opacity: 1;
   }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.85;
+  }
 }
 
-.animate-ring-pulse {
-  animation: ringPulse 12s ease-in-out infinite;
+.animate-ring-orbit {
+  animation: ringOrbit 20s linear infinite;
 }
 
-/* Glow orb animation */
-@keyframes orbFloat {
+/* Floating animation */
+@keyframes floatUpDown {
   0%, 100% {
-    transform: translateY(0px) scale(1);
+    transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px) scale(1.05);
+    transform: translateY(-8px);
   }
 }
 
-.animate-orb-float {
-  animation: orbFloat 6s ease-in-out infinite;
+.animate-float {
+  animation: floatUpDown 4s ease-in-out infinite;
+}
+
+/* Breathing Halo Animation */
+@keyframes haloBreathe {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.05);
+  }
+}
+
+.animate-halo-breathe {
+  animation: haloBreathe 5s ease-in-out infinite;
+}
+
+/* Slow rotation for wireframe orb */
+@keyframes orbRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-orb-rotate {
+  animation: orbRotate 30s linear infinite;
+}
+
+/* Pulse glow keyframes */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(245, 158, 11, 0.45);
+  }
+}
+
+.animate-glow-box {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Fade In Up Entrance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

@@ -8,22 +8,36 @@ import { selectProfile } from "../store";
 export default function About() {
   const profile = useAppSelector(selectProfile);
 
+  const handleScrollToSkills = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const target = document.getElementById("skills");
+    if (target) {
+      const topOffset = 80;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - topOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section id="about" className="py-16 md:py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Sleek Dark Enclosing Container Matching Image 2 */}
-        <div className="relative rounded-3xl bg-[#0f1420]/80 border border-white/10 backdrop-blur-xl p-6 sm:p-10 lg:p-12 shadow-2xl shadow-black/40 overflow-hidden">
+        <div className="relative rounded-3xl bg-[#0f1420]/90 border border-white/10 backdrop-blur-xl p-6 sm:p-10 lg:p-12 shadow-2xl shadow-black/50 overflow-hidden group">
           {/* Subtle Ambient Background Light */}
-          <div className="pointer-events-none absolute -top-24 -right-24 w-80 h-80 bg-amber-500/[0.06] rounded-full blur-3xl" />
+          <div className="pointer-events-none absolute -top-24 -right-24 w-80 h-80 bg-amber-500/[0.07] rounded-full blur-3xl animate-halo-breathe" />
           <div className="pointer-events-none absolute -bottom-24 -left-24 w-80 h-80 bg-blue-500/[0.04] rounded-full blur-3xl" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             {/* Left Column: Quick Profile Details */}
             <div className="lg:col-span-4 space-y-4">
-              <div className="rounded-2xl bg-[#141b2b]/90 border border-white/5 p-6 space-y-4">
+              <div className="rounded-2xl bg-[#141b2b]/90 border border-white/5 p-6 space-y-4 shadow-md shadow-black/20">
                 {/* Name */}
-                <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
+                <div className="flex items-start gap-3.5 group/item">
+                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0 mt-0.5 group-hover/item:scale-110 group-hover/item:bg-amber-500/20 transition-all">
                     <User className="w-4 h-4" />
                   </div>
                   <div>
@@ -37,8 +51,8 @@ export default function About() {
                 </div>
 
                 {/* Email */}
-                <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
+                <div className="flex items-start gap-3.5 group/item">
+                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0 mt-0.5 group-hover/item:scale-110 group-hover/item:bg-amber-500/20 transition-all">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="overflow-hidden">
@@ -55,8 +69,8 @@ export default function About() {
                 </div>
 
                 {/* Location */}
-                <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
+                <div className="flex items-start gap-3.5 group/item">
+                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0 mt-0.5 group-hover/item:scale-110 group-hover/item:bg-amber-500/20 transition-all">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
@@ -70,8 +84,8 @@ export default function About() {
                 </div>
 
                 {/* Experience */}
-                <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
+                <div className="flex items-start gap-3.5 group/item">
+                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0 mt-0.5 group-hover/item:scale-110 group-hover/item:bg-amber-500/20 transition-all">
                     <Briefcase className="w-4 h-4" />
                   </div>
                   <div>
@@ -129,11 +143,12 @@ export default function About() {
 
               <div className="pt-2">
                 <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-white/15 bg-white/5 text-sm font-medium text-slate-200 hover:text-white hover:border-amber-400/50 hover:bg-white/10 transition-all group"
+                  href="#skills"
+                  onClick={handleScrollToSkills}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-white/15 bg-white/5 text-sm font-medium text-slate-200 hover:text-white hover:border-amber-400/50 hover:bg-white/10 transition-all group cursor-pointer"
                 >
                   <span>Know More About Me</span>
-                  <ArrowRight className="w-4 h-4 text-amber-400 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-amber-400 group-hover:translate-x-1.5 transition-transform" />
                 </a>
               </div>
             </div>
@@ -142,7 +157,7 @@ export default function About() {
             <div className="lg:col-span-4">
               <div className="grid grid-cols-2 gap-4">
                 {/* Stat 1 */}
-                <div className="rounded-2xl bg-[#141b2b]/90 border border-white/5 p-5 text-center hover:border-amber-500/30 transition-all group">
+                <div className="rounded-2xl bg-[#141b2b]/90 border border-white/5 p-5 text-center hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300 group">
                   <span className="text-2xl sm:text-3xl font-black text-white group-hover:text-amber-400 transition-colors block">
                     {profile.stats?.projectsCompleted || "20+"}
                   </span>
@@ -152,7 +167,7 @@ export default function About() {
                 </div>
 
                 {/* Stat 2 */}
-                <div className="rounded-2xl bg-[#141b2b]/90 border border-white/5 p-5 text-center hover:border-amber-500/30 transition-all group">
+                <div className="rounded-2xl bg-[#141b2b]/90 border border-white/5 p-5 text-center hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300 group">
                   <span className="text-2xl sm:text-3xl font-black text-white group-hover:text-amber-400 transition-colors block">
                     {profile.stats?.happyClients || "15+"}
                   </span>
@@ -162,7 +177,7 @@ export default function About() {
                 </div>
 
                 {/* Stat 3 */}
-                <div className="rounded-2xl bg-[#141b2b]/90 border border-white/5 p-5 text-center hover:border-amber-500/30 transition-all group">
+                <div className="rounded-2xl bg-[#141b2b]/90 border border-white/5 p-5 text-center hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300 group">
                   <span className="text-2xl sm:text-3xl font-black text-white group-hover:text-amber-400 transition-colors block">
                     {profile.stats?.yearsExperience || "8+"}
                   </span>
@@ -172,7 +187,7 @@ export default function About() {
                 </div>
 
                 {/* Stat 4 */}
-                <div className="rounded-2xl bg-[#141b2b]/90 border border-white/5 p-5 text-center hover:border-amber-500/30 transition-all group">
+                <div className="rounded-2xl bg-[#141b2b]/90 border border-white/5 p-5 text-center hover:border-amber-500/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300 group">
                   <span className="text-2xl sm:text-3xl font-black text-white group-hover:text-amber-400 transition-colors block">
                     {profile.stats?.technologies || "10+"}
                   </span>

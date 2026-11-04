@@ -35,15 +35,15 @@ export default function Services() {
           </h2>
         </div>
 
-        {/* 4-Card Responsive Grid */}
+        {/* 4-Card Responsive Grid with Animated Hover Effects */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service) => (
             <div
               key={service.id}
-              className="rounded-2xl bg-[#111724]/90 border border-white/5 p-6 hover:border-amber-500/40 hover:bg-[#151c2c] transition-all duration-300 hover:-translate-y-1.5 shadow-lg shadow-black/30 group"
+              className="rounded-2xl bg-[#111724]/90 border border-white/5 p-6 hover:border-amber-500/40 hover:bg-[#151c2c] transition-all duration-300 hover:-translate-y-2 shadow-lg shadow-black/40 hover:shadow-2xl hover:shadow-amber-500/10 group cursor-default"
             >
-              {/* Icon Container */}
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all">
+              {/* Icon Container with Animated Scale & Glow */}
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-amber-500/20 group-hover:border-amber-400/50 group-hover:shadow-[0_0_20px_rgba(245,158,11,0.3)] transition-all duration-300">
                 {getServiceIcon(service.icon)}
               </div>
 
@@ -53,7 +53,7 @@ export default function Services() {
               </h3>
 
               {/* Description */}
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">
                 {service.description}
               </p>
             </div>
