@@ -30,7 +30,7 @@ export default function Hero() {
       className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden"
     >
       {/* Ambient background glows */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-amber-500/[0.08] rounded-full blur-[150px] animate-halo-breathe" />
         <div className="absolute top-1/3 left-10 w-[400px] h-[400px] bg-blue-600/[0.04] rounded-full blur-[160px]" />
       </div>
@@ -129,26 +129,45 @@ export default function Hero() {
 
           {/* Right Column: Hero Portrait with Glowing Halo & Floating Badge (Matching Image 2) */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end relative">
-            <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] md:w-[430px] md:h-[430px]">
+            <div
+              className="relative flex items-center justify-center"
+              style={{
+                width: "360px",
+                maxWidth: "100%",
+                aspectRatio: "1/1",
+              }}
+            >
               {/* Outer Radiant Golden Ambient Halo */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-amber-500/25 via-amber-400/35 to-yellow-500/15 blur-3xl transform scale-110 animate-halo-breathe" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-amber-500/25 via-amber-400/35 to-yellow-500/15 blur-3xl transform scale-110 animate-halo-breathe pointer-events-none" />
 
               {/* Glowing Amber Orbital Ring Orbit (Matching the fine golden orbit ring seen in Image 2) */}
               <div className="absolute -inset-4 sm:-inset-6 rounded-full border border-amber-400/50 shadow-[0_0_40px_rgba(245,158,11,0.3)] animate-ring-orbit pointer-events-none" />
 
-              {/* Inner Circular Portrait Container */}
-              <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-amber-400/60 shadow-2xl bg-[#0c121d] group">
+              {/* Inner Circular Portrait Container - Locked 1:1 Circle with cover crop */}
+              <div
+                className="relative w-full h-full rounded-full overflow-hidden border-2 border-amber-400/60 shadow-2xl bg-[#0c121d] group"
+                style={{
+                  aspectRatio: "1/1",
+                  borderRadius: "9999px",
+                  overflow: "hidden",
+                }}
+              >
                 <Image
                   src={profile.avatar || "/images/ShubhamManta.jpg"}
                   alt={profile.name}
                   fill
                   priority
-                  className="object-cover object-top scale-105 group-hover:scale-110 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 640px) 280px, (max-width: 1024px) 360px, 420px"
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "center 18%",
+                  }}
+                  className="scale-105 group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
               </div>
 
               {/* Floating Stat Badge (Top-Right, matching Image 2 with animated subtle float) */}
-              <div className="absolute -top-2 -right-2 sm:top-4 sm:-right-4 z-20 flex items-center gap-3 px-4 py-3 rounded-2xl bg-[#121824]/95 backdrop-blur-md border border-amber-500/40 shadow-2xl shadow-black/60 hover:scale-105 transition-transform animate-float">
+              <div className="absolute -top-2 -right-2 sm:top-2 sm:-right-2 z-20 flex items-center gap-3 px-4 py-3 rounded-2xl bg-[#121824]/95 backdrop-blur-md border border-amber-500/40 shadow-2xl shadow-black/60 hover:scale-105 transition-transform animate-float">
                 <div className="flex flex-col">
                   <span className="text-xl sm:text-2xl font-black text-white leading-none">
                     {profile.stats?.yearsExperience || "8+"}
