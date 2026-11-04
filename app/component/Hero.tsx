@@ -77,7 +77,10 @@ export default function Hero() {
               </a>
 
               <a
-                href={`mailto:${profile.email}?subject=Resume%20Request`}
+                href={profile.resumeUrl || "/documents/ShubhamMantaResume.pdf"}
+                target="_blank"
+                rel="noopener noreferrer"
+                download="ShubhamMantaResume.pdf"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium rounded-lg border border-white/20 bg-white/5 text-slate-200 hover:bg-white/10 hover:border-amber-400/50 hover:text-white transition-all hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
                 <Download className="w-4 h-4 text-amber-400" />

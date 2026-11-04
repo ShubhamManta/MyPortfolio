@@ -14,6 +14,7 @@ export async function GET() {
       availability: "Open to Work",
       yearsOfExperience: 8,
       avatar: "/images/ShubhamManta.jpg",
+      resumeUrl: "/documents/ShubhamMantaResume.pdf",
       summary:
         "Senior Software Engineer with around 8 years of experience building high-concurrency web platforms, distributed backends, and low-latency real-time systems across fintech and healthcare. Experienced in Node.js, NestJS, Next.js, PHP, WebSockets, event-driven architectures, applied AI, and database optimization.",
       bioShort:
