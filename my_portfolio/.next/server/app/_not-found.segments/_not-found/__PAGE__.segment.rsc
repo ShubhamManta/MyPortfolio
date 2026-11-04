@@ -1,0 +1,37 @@
+1:"$Sreact.fragment"
+2:"$Sreact.suspense"
+3:"static/chunks/410-c055039435f6166a.js"
+4:"static/chunks/app/layout-a750628eaa552ad0.js"
+5:I[6682,["410","$3","177","$4"],"default"]
+6:I[7121,[],""]
+7:I[4581,[],""]
+f:I[484,[],"OutletBoundary"]
+13:"ViewportBoundary"
+14:I[484,[],"$13"]
+15:"MetadataBoundary"
+16:I[484,[],"$15"]
+17:I[6869,[],"IconMark"]
+:HL["/_next/static/css/ba472a5b8834d567.css","style"]
+9:X
+9:C
+a:X
+a:300
+a:C
+d:X
+d:C
+12:X
+12:C
+e:[["children",{"s":"__PAGE__","h":49314,"d":{"r":["$","$1","c",{"children":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],null,["$","$Lf",null,{"children":["$","$2",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]]}],"p":"$@11","v":"$12","s":"$a"}}]]
+b:[["children",{"s":"_not-found","h":49250,"d":{"r":["$","$1","c",{"children":[null,["$","$L6",null,{"parallelRouterKey":"children","template":["$","$L7",null,{}]}]]}],"p":"$@c","v":"$d","s":"$a"},"c":"$Qe"}]]
+19:X
+19:C
+1c:X
+1c:C
+0:{"t":{"t":{"s":"","h":49234,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/ba472a5b8834d567.css","precedence":"next"}]],["$","html",null,{"lang":"en","className":"h-full antialiased dark scroll-smooth","children":["$","body",null,{"className":"min-h-full flex flex-col bg-[#050811] text-slate-100 selection:bg-cyan-500 selection:text-black","children":["$","$2",null,{"fallback":["$","div",null,{"className":"min-h-screen bg-[#050811]"}],"children":["$","$L5",null,{"children":["$","$L6",null,{"parallelRouterKey":"children","template":["$","$L7",null,{}]}]}]}]}]}]]}],"p":"$@8","v":"$9","s":"$a"},"c":"$Qb"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L14",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L16",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$2",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Shubham Manta | Senior Full-Stack & Systems Engineer"}],["$","meta","1",{"name":"description","content":"Portfolio of Shubham Manta - Senior Full-Stack & Systems Engineer with 8+ years of experience in distributed backends, Next.js, WebSockets, and high-concurrency systems."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?7161ee1d105bc9c7","type":"image/x-icon","sizes":"48x48"}],["$","$L17","3",{}]]}]}],null]}],null]}],"p":"$@18","v":"$19","s":"$a"}},"a":"$@1a","u":"$@1b","b":"t784N05aLI43XCaw62-dP","r":"$1c"}
+10:null
+1b:false
+1a:null
+c:"$undefined"
+8:"$undefined"
+18:"$undefined"
+11:"$undefined"

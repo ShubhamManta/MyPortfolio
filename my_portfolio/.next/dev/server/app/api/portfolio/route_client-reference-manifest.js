@@ -1,0 +1,1 @@
+globalThis.__RSC_MANIFEST=(globalThis.__RSC_MANIFEST||{});globalThis.__RSC_MANIFEST["/api/portfolio/route"]={"moduleLoading":{"prefix":"/_next/"},"ssrModuleMapping":{},"edgeSSRModuleMapping":{},"clientModules":{},"entryCSSFiles":{"/Users/shubisworld/Documents/GitHub/MyPortfolio/my_portfolio/app/api/portfolio/route":[]},"rscModuleMapping":{},"edgeRscModuleMapping":{}};

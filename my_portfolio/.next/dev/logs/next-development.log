@@ -1,0 +1,20 @@
+{"timestamp":"00:00:01.720","source":"Server","level":"LOG","message":"- Cache Components enabled"}
+{"timestamp":"00:00:01.720","source":"Server","level":"LOG","message":"- Partial Prefetching enabled"}
+{"timestamp":"00:00:01.720","source":"Server","level":"LOG","message":"- Experiments (use with caution):"}
+{"timestamp":"00:00:01.720","source":"Server","level":"LOG","message":"  ✓ agentFeedback"}
+{"timestamp":"00:00:01.720","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:04.964","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:00:05.014","source":"Browser","level":"WARN","message":"Image with src \"/images/ShubhamManta.jpg\" has \"fill\" and parent element with invalid \"position\". Provided \"static\" should be one of absolute,fixed,relative."}
+{"timestamp":"00:00:05.048","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/ShubhamManta.jpg\\\" has \\\"fill\\\" and parent element with invalid \\\"position\\\". Provided \\\"static\\\" should be one of absolute,fixed,relative.\\u001b[39m\""}
+{"timestamp":"00:04:07.738","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:04:07.781","source":"Browser","level":"WARN","message":"Image with src \"/images/ShubhamManta.jpg\" has \"fill\" and parent element with invalid \"position\". Provided \"static\" should be one of absolute,fixed,relative."}
+{"timestamp":"00:04:07.782","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/ShubhamManta.jpg\\\" has \\\"fill\\\" and parent element with invalid \\\"position\\\". Provided \\\"static\\\" should be one of absolute,fixed,relative.\\u001b[39m\""}
+{"timestamp":"00:07:00.480","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:07:00.529","source":"Browser","level":"WARN","message":"Image with src \"/images/ShubhamManta.jpg\" has \"fill\" and parent element with invalid \"position\". Provided \"static\" should be one of absolute,fixed,relative."}
+{"timestamp":"00:07:00.530","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/ShubhamManta.jpg\\\" has \\\"fill\\\" and parent element with invalid \\\"position\\\". Provided \\\"static\\\" should be one of absolute,fixed,relative.\\u001b[39m\""}
+{"timestamp":"00:08:20.507","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:08:20.545","source":"Browser","level":"WARN","message":"Image with src \"/images/ShubhamManta.jpg\" has \"fill\" and parent element with invalid \"position\". Provided \"static\" should be one of absolute,fixed,relative."}
+{"timestamp":"00:08:20.545","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/ShubhamManta.jpg\\\" has \\\"fill\\\" and parent element with invalid \\\"position\\\". Provided \\\"static\\\" should be one of absolute,fixed,relative.\\u001b[39m\""}
+{"timestamp":"00:08:30.073","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:08:30.144","source":"Browser","level":"WARN","message":"Image with src \"/images/ShubhamManta.jpg\" has \"fill\" and parent element with invalid \"position\". Provided \"static\" should be one of absolute,fixed,relative."}
+{"timestamp":"00:08:30.144","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/ShubhamManta.jpg\\\" has \\\"fill\\\" and parent element with invalid \\\"position\\\". Provided \\\"static\\\" should be one of absolute,fixed,relative.\\u001b[39m\""}
