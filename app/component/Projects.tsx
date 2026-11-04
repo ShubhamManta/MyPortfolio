@@ -2,131 +2,243 @@
 
 import React from "react";
 import { ExternalLink, ArrowRight } from "lucide-react";
+import { GithubIcon } from "./Icons";
 import { useAppSelector } from "../lib/hooks";
 import { selectProjects } from "../store";
 
 export default function Projects() {
   const projects = useAppSelector(selectProjects);
 
-  // High-fidelity UI mockup renderer matching Image 2's cards
+  // High-fidelity UI mockup renderer tailored for each project
   const renderProjectMockup = (projectId: string) => {
-    if (projectId === "dev-analytics") {
-      return (
-        <div className="relative w-full h-44 bg-[#0a0f18] p-3 flex flex-col justify-between overflow-hidden font-mono text-[10px]">
-          {/* Top Mock Window Bar */}
-          <div className="flex items-center justify-between pb-2 border-b border-white/5">
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-red-500/80" />
-              <span className="w-2 h-2 rounded-full bg-yellow-500/80" />
-              <span className="w-2 h-2 rounded-full bg-green-500/80" />
+    switch (projectId) {
+      case "fxview":
+        return (
+          <div className="relative w-full h-44 bg-[#080d16] p-3 flex flex-col justify-between overflow-hidden font-mono text-[10px]">
+            {/* Window Header */}
+            <div className="flex items-center justify-between pb-2 border-b border-white/10">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                <span className="w-2 h-2 rounded-full bg-yellow-500/80" />
+                <span className="w-2 h-2 rounded-full bg-green-500/80" />
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="px-1.5 py-0.5 rounded bg-amber-500/15 border border-amber-500/30 text-amber-400 text-[8px] font-bold">
+                  CySEC • FSCA
+                </span>
+                <span className="text-slate-400 text-[9px]">fxview.com</span>
+              </div>
             </div>
-            <span className="text-slate-500 text-[9px]">dev-analytics.app</span>
-          </div>
-          {/* Mock Dashboard Graphs */}
-          <div className="grid grid-cols-3 gap-2 my-2">
-            <div className="rounded bg-[#121926] p-1.5 border border-white/5">
-              <span className="text-slate-400 text-[8px] block">Requests/s</span>
-              <span className="text-amber-400 text-xs font-bold">14.2k</span>
-            </div>
-            <div className="rounded bg-[#121926] p-1.5 border border-white/5">
-              <span className="text-slate-400 text-[8px] block">Latency</span>
-              <span className="text-emerald-400 text-xs font-bold">18ms</span>
-            </div>
-            <div className="rounded bg-[#121926] p-1.5 border border-white/5">
-              <span className="text-slate-400 text-[8px] block">Uptime</span>
-              <span className="text-cyan-400 text-xs font-bold">99.98%</span>
-            </div>
-          </div>
-          {/* Mock Purple Wave Line Graph with pulse animation */}
-          <div className="h-14 w-full flex items-end gap-1 pt-2">
-            {[40, 65, 45, 80, 55, 90, 70, 85, 60, 95, 75, 100, 85, 65, 90, 110].map(
-              (val, idx) => (
-                <div
-                  key={idx}
-                  style={{ height: `${val * 0.45}%` }}
-                  className="flex-1 bg-gradient-to-t from-purple-600/30 to-purple-400 rounded-t group-hover:from-purple-600/50 group-hover:to-purple-300 transition-all duration-300"
-                />
-              )
-            )}
-          </div>
-        </div>
-      );
-    }
 
-    if (projectId === "shop-sphere") {
-      return (
-        <div className="relative w-full h-44 bg-[#0d131f] p-3 flex flex-col justify-between overflow-hidden">
-          {/* Mock Clean E-Commerce Header */}
-          <div className="flex items-center justify-between pb-2 border-b border-white/5">
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-red-500/80" />
-              <span className="w-2 h-2 rounded-full bg-yellow-500/80" />
-              <span className="w-2 h-2 rounded-full bg-green-500/80" />
-            </div>
-            <span className="text-slate-500 text-[9px] font-mono">shopsphere.io</span>
-          </div>
-          {/* Mock Product Grid */}
-          <div className="grid grid-cols-3 gap-2 my-auto">
-            <div className="rounded bg-[#172033] p-2 border border-white/5 flex flex-col items-center group-hover:border-amber-500/30 transition-colors">
-              <div className="w-full h-12 rounded bg-amber-500/10 mb-1.5 flex items-center justify-center text-amber-400 text-xs">
-                ☕
+            {/* Trading Pair & Stats */}
+            <div className="grid grid-cols-3 gap-2 my-1.5">
+              <div className="rounded bg-[#0e1626] p-1.5 border border-white/5">
+                <span className="text-slate-400 text-[8px] block">EUR / USD</span>
+                <span className="text-emerald-400 text-xs font-bold">1.0892 ▲</span>
               </div>
-              <div className="w-12 h-1.5 rounded bg-slate-600 mb-1" />
-              <div className="w-8 h-1.5 rounded bg-amber-500/60" />
-            </div>
-            <div className="rounded bg-[#172033] p-2 border border-white/5 flex flex-col items-center group-hover:border-cyan-500/30 transition-colors">
-              <div className="w-full h-12 rounded bg-cyan-500/10 mb-1.5 flex items-center justify-center text-cyan-400 text-xs">
-                🎧
+              <div className="rounded bg-[#0e1626] p-1.5 border border-white/5">
+                <span className="text-slate-400 text-[8px] block">SPREAD</span>
+                <span className="text-amber-400 text-xs font-bold">0.0 Pips</span>
               </div>
-              <div className="w-12 h-1.5 rounded bg-slate-600 mb-1" />
-              <div className="w-8 h-1.5 rounded bg-cyan-500/60" />
-            </div>
-            <div className="rounded bg-[#172033] p-2 border border-white/5 flex flex-col items-center group-hover:border-emerald-500/30 transition-colors">
-              <div className="w-full h-12 rounded bg-emerald-500/10 mb-1.5 flex items-center justify-center text-emerald-400 text-xs">
-                ⌚
+              <div className="rounded bg-[#0e1626] p-1.5 border border-white/5">
+                <span className="text-slate-400 text-[8px] block">LEVERAGE</span>
+                <span className="text-cyan-400 text-xs font-bold">1:500</span>
               </div>
-              <div className="w-12 h-1.5 rounded bg-slate-600 mb-1" />
-              <div className="w-8 h-1.5 rounded bg-emerald-500/60" />
             </div>
-          </div>
-        </div>
-      );
-    }
 
-    // Default: TaskFlow
-    return (
-      <div className="relative w-full h-44 bg-[#0a0f18] p-3 flex flex-col justify-between overflow-hidden">
-        {/* Mock Top Bar */}
-        <div className="flex items-center justify-between pb-2 border-b border-white/5">
-          <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-red-500/80" />
-            <span className="w-2 h-2 rounded-full bg-yellow-500/80" />
-            <span className="w-2 h-2 rounded-full bg-green-500/80" />
-          </div>
-          <span className="text-slate-500 text-[9px] font-mono">taskflow.app</span>
-        </div>
-        {/* Mock Kanban Columns */}
-        <div className="grid grid-cols-3 gap-2 my-auto">
-          <div className="rounded bg-[#131b2c] p-2 border border-white/5 space-y-1.5">
-            <span className="text-[9px] font-bold text-slate-400 block uppercase">To Do</span>
-            <div className="rounded bg-[#1a243a] p-1 text-[8px] text-slate-300">API Gateway</div>
-            <div className="rounded bg-[#1a243a] p-1 text-[8px] text-slate-300">Auth Token</div>
-          </div>
-          <div className="rounded bg-[#131b2c] p-2 border border-white/5 space-y-1.5">
-            <span className="text-[9px] font-bold text-amber-400 block uppercase">In Progress</span>
-            <div className="rounded bg-amber-500/10 border border-amber-500/20 p-1 text-[8px] text-amber-300">
-              WebSockets
+            {/* Live Candlestick / Graph */}
+            <div className="h-14 w-full flex items-end gap-1.5 pt-1">
+              {[45, 60, 50, 75, 65, 85, 70, 95, 80, 100, 90, 110, 95, 120, 105, 130].map(
+                (val, idx) => (
+                  <div
+                    key={idx}
+                    style={{ height: `${val * 0.4}%` }}
+                    className="flex-1 bg-gradient-to-t from-emerald-600/30 to-emerald-400 rounded-t group-hover:from-emerald-600/50 group-hover:to-emerald-300 transition-all duration-300"
+                  />
+                )
+              )}
             </div>
           </div>
-          <div className="rounded bg-[#131b2c] p-2 border border-white/5 space-y-1.5">
-            <span className="text-[9px] font-bold text-emerald-400 block uppercase">Done</span>
-            <div className="rounded bg-emerald-500/10 border border-emerald-500/20 p-1 text-[8px] text-emerald-300">
-              Deploy V1
+        );
+
+      case "crypto-market":
+        return (
+          <div className="relative w-full h-44 bg-[#0a0f1a] p-3 flex flex-col justify-between overflow-hidden font-mono text-[10px]">
+            {/* Window Header */}
+            <div className="flex items-center justify-between pb-2 border-b border-white/10">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                <span className="w-2 h-2 rounded-full bg-yellow-500/80" />
+                <span className="w-2 h-2 rounded-full bg-green-500/80" />
+              </div>
+              <span className="text-amber-400 text-[9px] font-bold">LIVE CRYPTO EXCHANGE</span>
+            </div>
+
+            {/* Trading Controls & Order Book */}
+            <div className="grid grid-cols-3 gap-2 my-1.5">
+              <div className="rounded bg-[#121929] p-1.5 border border-white/5">
+                <span className="text-slate-400 text-[8px] block">BTC / USDT</span>
+                <span className="text-emerald-400 text-xs font-bold">$94,320</span>
+              </div>
+              <div className="rounded bg-emerald-500/10 border border-emerald-500/30 p-1.5 flex items-center justify-center text-emerald-400 font-bold text-xs">
+                BUY ORDER
+              </div>
+              <div className="rounded bg-red-500/10 border border-red-500/30 p-1.5 flex items-center justify-center text-red-400 font-bold text-xs">
+                SELL ORDER
+              </div>
+            </div>
+
+            {/* Animated Ticker Bars */}
+            <div className="h-14 w-full flex items-end gap-1.5 pt-1">
+              {[60, 40, 75, 55, 90, 70, 85, 100, 75, 110, 85, 95, 115, 105, 125, 140].map(
+                (val, idx) => (
+                  <div
+                    key={idx}
+                    style={{ height: `${val * 0.38}%` }}
+                    className="flex-1 bg-gradient-to-t from-amber-600/30 to-amber-400 rounded-t group-hover:from-amber-600/50 group-hover:to-amber-300 transition-all duration-300"
+                  />
+                )
+              )}
             </div>
           </div>
-        </div>
-      </div>
-    );
+        );
+
+      case "erp-web-app":
+        return (
+          <div className="relative w-full h-44 bg-[#090e18] p-3 flex flex-col justify-between overflow-hidden font-mono text-[10px]">
+            {/* Window Header */}
+            <div className="flex items-center justify-between pb-2 border-b border-white/10">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                <span className="w-2 h-2 rounded-full bg-yellow-500/80" />
+                <span className="w-2 h-2 rounded-full bg-green-500/80" />
+              </div>
+              <span className="text-slate-400 text-[9px]">ERP Manager • Balance Sheet</span>
+            </div>
+
+            {/* ERP Modules */}
+            <div className="grid grid-cols-3 gap-2 my-auto">
+              <div className="rounded bg-[#121a2c] p-2 border border-white/5 space-y-1">
+                <span className="text-[8px] text-slate-400 block uppercase">Sales Invoices</span>
+                <span className="text-cyan-400 text-xs font-bold block">$184,200</span>
+                <div className="w-full h-1 bg-cyan-500/30 rounded" />
+              </div>
+              <div className="rounded bg-[#121a2c] p-2 border border-white/5 space-y-1">
+                <span className="text-[8px] text-slate-400 block uppercase">Purchase Orders</span>
+                <span className="text-amber-400 text-xs font-bold block">$112,850</span>
+                <div className="w-full h-1 bg-amber-500/30 rounded" />
+              </div>
+              <div className="rounded bg-[#121a2c] p-2 border border-white/5 space-y-1">
+                <span className="text-[8px] text-slate-400 block uppercase">Stock Inventory</span>
+                <span className="text-emerald-400 text-xs font-bold block">4,890 Items</span>
+                <div className="w-full h-1 bg-emerald-500/30 rounded" />
+              </div>
+            </div>
+
+            {/* Balance Sheet Status Bar */}
+            <div className="flex items-center justify-between px-2 py-1.5 rounded bg-[#101726] border border-white/5 text-[9px]">
+              <span className="text-slate-400">Net Balance Sheet</span>
+              <span className="text-emerald-400 font-bold">+ $71,350 (Audited)</span>
+            </div>
+          </div>
+        );
+
+      case "career-pilot":
+        return (
+          <div className="relative w-full h-44 bg-[#0a0f19] p-3 flex flex-col justify-between overflow-hidden font-mono text-[10px]">
+            {/* Window Header */}
+            <div className="flex items-center justify-between pb-2 border-b border-white/10">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                <span className="w-2 h-2 rounded-full bg-yellow-500/80" />
+                <span className="w-2 h-2 rounded-full bg-green-500/80" />
+              </div>
+              <span className="text-purple-400 text-[9px] font-bold">CareerPilot Portals</span>
+            </div>
+
+            {/* Dual Portal Cards */}
+            <div className="grid grid-cols-2 gap-2 my-auto">
+              <div className="rounded bg-[#141b2c] p-2.5 border border-purple-500/20 space-y-1">
+                <span className="text-[8px] text-purple-300 font-bold block uppercase">
+                  Institution Portal
+                </span>
+                <span className="text-white text-xs font-semibold block">48 Active Courses</span>
+                <span className="text-slate-400 text-[8px] block">Mobile Student Enroll</span>
+              </div>
+              <div className="rounded bg-[#141b2c] p-2.5 border border-cyan-500/20 space-y-1">
+                <span className="text-[8px] text-cyan-300 font-bold block uppercase">
+                  Admin Portal
+                </span>
+                <span className="text-white text-xs font-semibold block">1,250 Registrations</span>
+                <span className="text-slate-400 text-[8px] block">Institutions Oversight</span>
+              </div>
+            </div>
+
+            {/* Bottom Status Ticker */}
+            <div className="flex items-center justify-between px-2 py-1.5 rounded bg-[#101728] border border-white/5 text-[9px]">
+              <span className="text-slate-400">System Pipeline</span>
+              <span className="text-cyan-400 font-medium">Portals Live &amp; Connected</span>
+            </div>
+          </div>
+        );
+
+      case "ers-health":
+        return (
+          <div className="relative w-full h-44 bg-[#090f18] p-3 flex flex-col justify-between overflow-hidden font-mono text-[10px]">
+            {/* Window Header */}
+            <div className="flex items-center justify-between pb-2 border-b border-white/10">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                <span className="w-2 h-2 rounded-full bg-yellow-500/80" />
+                <span className="w-2 h-2 rounded-full bg-green-500/80" />
+              </div>
+              <span className="text-emerald-400 text-[9px] font-bold">ERS Healthcare Admin</span>
+            </div>
+
+            {/* Medical Entities Grid */}
+            <div className="grid grid-cols-3 gap-2 my-auto">
+              <div className="rounded bg-[#121b2b] p-2 border border-white/5 text-center">
+                <span className="text-[8px] text-slate-400 block uppercase">Patients</span>
+                <span className="text-emerald-400 text-xs font-bold">3,420</span>
+                <span className="text-[8px] text-slate-500 block">Records</span>
+              </div>
+              <div className="rounded bg-[#121b2b] p-2 border border-white/5 text-center">
+                <span className="text-[8px] text-slate-400 block uppercase">Doctors</span>
+                <span className="text-cyan-400 text-xs font-bold">185</span>
+                <span className="text-[8px] text-slate-500 block">Verified</span>
+              </div>
+              <div className="rounded bg-[#121b2b] p-2 border border-white/5 text-center">
+                <span className="text-[8px] text-slate-400 block uppercase">Hospitals</span>
+                <span className="text-amber-400 text-xs font-bold">24</span>
+                <span className="text-[8px] text-slate-500 block">Networks</span>
+              </div>
+            </div>
+
+            {/* Pulse Rate Monitor */}
+            <div className="flex items-center justify-between px-2 py-1.5 rounded bg-[#0f1724] border border-white/5 text-[9px]">
+              <span className="text-slate-400">Referrals &amp; Medications</span>
+              <span className="text-emerald-400 font-bold">● Active EMR Stream</span>
+            </div>
+          </div>
+        );
+
+      default:
+        return (
+          <div className="relative w-full h-44 bg-[#0a0f18] p-3 flex flex-col justify-between overflow-hidden">
+            <div className="flex items-center justify-between pb-2 border-b border-white/5">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                <span className="w-2 h-2 rounded-full bg-yellow-500/80" />
+                <span className="w-2 h-2 rounded-full bg-green-500/80" />
+              </div>
+              <span className="text-slate-500 text-[9px] font-mono">application.dev</span>
+            </div>
+            <div className="flex-1 flex items-center justify-center text-slate-400 text-xs font-mono">
+              Live Application
+            </div>
+          </div>
+        );
+    }
   };
 
   return (
@@ -144,7 +256,7 @@ export default function Projects() {
           </div>
 
           <a
-            href="https://github.com/shubisworld"
+            href="https://github.com/ShubhamManta"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-amber-400 transition-colors group cursor-pointer"
@@ -154,7 +266,7 @@ export default function Projects() {
           </a>
         </div>
 
-        {/* 3-Project Grid */}
+        {/* Responsive Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
             <div
@@ -175,24 +287,60 @@ export default function Projects() {
                     <h3 className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">
                       {project.title}
                     </h3>
-                    <a
-                      href={project.liveUrl || project.githubUrl || "#"}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-slate-400 hover:text-amber-400 transition-colors p-1 group/link"
-                      aria-label={`View ${project.title}`}
-                    >
-                      <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                    </a>
+                    <div className="flex items-center gap-2">
+                      {project.githubUrl && project.githubUrl.includes("github.com") && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-slate-400 hover:text-amber-400 transition-colors p-1"
+                          aria-label={`GitHub repo for ${project.title}`}
+                        >
+                          <GithubIcon className="w-4 h-4" />
+                        </a>
+                      )}
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-slate-400 hover:text-amber-400 transition-colors p-1 group/link"
+                          aria-label={`Live site for ${project.title}`}
+                        >
+                          <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                        </a>
+                      )}
+                    </div>
                   </div>
 
-                  <p className="text-sm text-slate-400 leading-relaxed mb-6 line-clamp-3 group-hover:text-slate-300 transition-colors">
+                  {project.category && (
+                    <span className="text-[11px] font-semibold text-amber-400/90 block mb-2 uppercase tracking-wide">
+                      {project.category}
+                    </span>
+                  )}
+
+                  <p className="text-sm text-slate-400 leading-relaxed mb-6 group-hover:text-slate-300 transition-colors">
                     {project.description}
                   </p>
+
+                  {/* Dual portal links if available */}
+                  {project.extraUrl && (
+                    <div className="mb-4">
+                      <a
+                        href={project.extraUrl.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 underline underline-offset-4"
+                      >
+                        <span>{project.extraUrl.label}</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </div>
+                  )}
                 </div>
 
                 {/* Tech Pills */}
-                <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-white/5">
+                <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-white/5">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}

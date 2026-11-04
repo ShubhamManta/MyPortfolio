@@ -18,6 +18,10 @@ export interface PortfolioProject {
   liveUrl?: string;
   githubUrl?: string;
   featured?: boolean;
+  extraUrl?: {
+    label: string;
+    url: string;
+  };
 }
 
 export interface ServiceItem {
@@ -129,7 +133,7 @@ const initialState: PortfolioState = {
       technologies: "10+",
     },
     socialLinks: {
-      github: "https://github.com/shubisworld",
+      github: "https://github.com/ShubhamManta",
       linkedin: "https://www.linkedin.com/in/shubham-manta-94570b224",
       twitter: "https://x.com",
       email: "mantashubham@gmail.com",
@@ -182,36 +186,62 @@ const initialState: PortfolioState = {
 
   projects: [
     {
-      id: "dev-analytics",
-      title: "DevAnalytics",
-      category: "Fintech & Analytics",
+      id: "fxview",
+      title: "Fxview",
+      category: "Fintech & Global Trading",
       description:
-        "Analytics dashboard for developers to track productivity, code metrics, and low-latency market order books.",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+        "A global financial brand by Finvasia Group regulated by CySEC & FSCA, delivering institutional-grade trading infrastructure, commission-free multi-asset execution, and financial technology catering to millions of traders across 180+ countries.",
+      technologies: ["Next.js", "TypeScript", "WebSockets", "Trading APIs", "Tailwind CSS"],
       liveUrl: "https://fxview.com/global/",
-      githubUrl: "https://github.com/shubisworld",
+      githubUrl: "https://github.com/ShubhamManta",
       featured: true,
     },
     {
-      id: "shop-sphere",
-      title: "ShopSphere",
-      category: "E-Commerce & Scalable APIs",
+      id: "crypto-market",
+      title: "Crypto Market",
+      category: "Live Currency & Crypto Exchange",
       description:
-        "Modern e-commerce platform with cart, payments, real-time doctor-patient tracking, and order management.",
-      technologies: ["React", "Node.js", "MongoDB"],
-      liveUrl: "https://github.com/shubisworld",
-      githubUrl: "https://github.com/shubisworld",
+        "Real-time currency & crypto trading platform featuring live trading account creation, real-time interactive market charts, live currency quotes, and direct live-market order execution.",
+      technologies: ["React", "Node.js", "WebSockets", "TradingView", "MongoDB"],
+      liveUrl: "https://github.com/ShubhamManta/cryptoMarket",
+      githubUrl: "https://github.com/ShubhamManta/cryptoMarket",
       featured: true,
     },
     {
-      id: "task-flow",
-      title: "TaskFlow",
-      category: "Productivity & Real-time",
+      id: "erp-web-app",
+      title: "Enterprise Resource Planning",
+      category: "Business Operations & Inventory",
       description:
-        "Collaborative task management tool with real-time updates, team collaboration, and WebSocket features.",
-      technologies: ["React", "Express.js", "Socket.io"],
-      liveUrl: "https://career-admin.dev.vinove.com/",
-      githubUrl: "https://career-admin.dev.vinove.com/",
+        "Comprehensive ERP business platform to record sales invoices, manage purchase orders, track warehouse item stocks, and generate automated balance sheets and financial analytical reports.",
+      technologies: ["PHP", "MySQL", "JavaScript", "REST APIs", "HTML5"],
+      liveUrl: "https://github.com/ShubhamManta/erp_web_application",
+      githubUrl: "https://github.com/ShubhamManta/erp_web_application",
+      featured: true,
+    },
+    {
+      id: "career-pilot",
+      title: "CareerPilot",
+      category: "EdTech & Dual Portals",
+      description:
+        "Full-scale educational portal ecosystem with an Institution Portal offering mobile student course registration, paired with an Admin Portal tracking institutions, enrolled students, and academic offerings.",
+      technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "REST APIs"],
+      liveUrl: "https://career-admin.dev.vinove.com",
+      githubUrl: "https://career-frontend.dev.vinove.com",
+      featured: true,
+      extraUrl: {
+        label: "Institution Portal",
+        url: "https://career-frontend.dev.vinove.com",
+      },
+    },
+    {
+      id: "ers-health",
+      title: "ERS Health Domain",
+      category: "Healthcare & Administration",
+      description:
+        "Enterprise healthcare administration portal managing patients, doctors, and hospitals, with full lifecycle tracking of electronic patient records, diagnostic reports, medications, and hospital referrals.",
+      technologies: ["Next.js", "NestJS", "PostgreSQL", "WebSockets", "RBAC"],
+      liveUrl: "https://ers-frontend-admin.dev.vinove.com",
+      githubUrl: "https://ers-frontend-admin.dev.vinove.com",
       featured: true,
     },
   ],
