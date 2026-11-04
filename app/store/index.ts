@@ -15,6 +15,9 @@ export type AppDispatch = AppStore["dispatch"];
 // Selectors
 export const selectPortfolio = (state: RootState) => state.portfolio;
 export const selectProfile = (state: RootState) => state.portfolio.profile;
+export const selectServices = (state: RootState) => state.portfolio.services;
+export const selectTechStack = (state: RootState) => state.portfolio.techStack;
+export const selectTestimonials = (state: RootState) => state.portfolio.testimonials;
 export const selectFeaturedSkills = (state: RootState) => state.portfolio.featuredSkills;
 export const selectSkills = (state: RootState) => state.portfolio.skills;
 export const selectProjects = (state: RootState) => state.portfolio.projects;

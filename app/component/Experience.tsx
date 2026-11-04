@@ -66,7 +66,7 @@ export default function Experience() {
       {/* Content */}
       {activeTab === "experience" ? (
         <div className="relative space-y-6 before:absolute before:inset-0 before:left-4 sm:before:left-6 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-cyan-400 before:via-blue-500/30 before:to-transparent">
-          {experiences.map((exp, index) => (
+          {experiences.map((exp) => (
             <div
               key={exp.company + exp.duration}
               className="group relative flex flex-col sm:flex-row items-start gap-4 sm:gap-6 pl-10 sm:pl-14"

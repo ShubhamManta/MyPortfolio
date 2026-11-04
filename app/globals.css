@@ -1,82 +1,71 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050811;
+  --background: #0b0f17;
   --foreground: #f8fafc;
-  --cyan-glow: 0 0 25px rgba(6, 182, 212, 0.35);
-  --cyan-glow-lg: 0 0 50px rgba(6, 182, 212, 0.45);
+  --accent-amber: #f59e0b;
+  --accent-amber-glow: rgba(245, 158, 11, 0.25);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
 }
 
-/* Custom cyber scrollbar */
+/* Custom Amber scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #050811;
+  background: #090c13;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0e2942;
+  background: #232c3f;
   border-radius: 9999px;
-  border: 1px solid rgba(6, 182, 212, 0.2);
+  border: 1px solid rgba(245, 158, 11, 0.15);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #06b6d4;
+  background: #f59e0b;
 }
 
-/* Cyber glowing animations & effects */
-@keyframes pulseGlow {
+/* Subtle dot-grid pattern */
+.bg-tech-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Glowing Amber Ring Animation */
+@keyframes ringPulse {
   0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
+    transform: scale(1) rotate(0deg);
+    opacity: 0.85;
   }
   50% {
-    opacity: 0.7;
-    transform: scale(1.05);
+    transform: scale(1.02) rotate(180deg);
+    opacity: 1;
   }
 }
 
-@keyframes cursorBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.animate-ring-pulse {
+  animation: ringPulse 12s ease-in-out infinite;
 }
 
-.animate-cursor {
-  animation: cursorBlink 1s infinite;
+/* Glow orb animation */
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
 }
 
-.animate-glow-pulse {
-  animation: pulseGlow 6s ease-in-out infinite;
-}
-
-/* Subtle tech grid background */
-.cyber-grid {
-  background-image: 
-    linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
-  background-size: 3.5rem 3.5rem;
-}
-
-/* Glassmorphism panel styles */
-.glass-panel {
-  background: rgba(10, 19, 36, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(6, 182, 212, 0.18);
-}
-
-.glass-panel-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glass-panel-hover:hover {
-  border-color: rgba(6, 182, 212, 0.5);
-  box-shadow: 0 0 30px rgba(6, 182, 212, 0.22);
-  transform: translateY(-2px);
+.animate-orb-float {
+  animation: orbFloat 6s ease-in-out infinite;
 }

@@ -3,10 +3,12 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./component/Navbar";
 import Hero from "./component/Hero";
-import Skills from "./component/Skills";
+import About from "./component/About";
+import Services from "./component/Services";
+import TechStack from "./component/TechStack";
 import Projects from "./component/Projects";
-import Experience from "./component/Experience";
-import ContactCTA from "./component/ContactCTA";
+import Testimonials from "./component/Testimonials";
+import Contact from "./component/Contact";
 import Footer from "./component/Footer";
 import ContactModal from "./component/ContactModal";
 import { useAppDispatch, useAppSelector } from "./lib/hooks";
@@ -18,7 +20,6 @@ export default function MainPage() {
   const loadingStatus = useAppSelector(selectPortfolioLoading);
   const [isContactOpen, setIsContactOpen] = useState(false);
 
-  // Fetch portfolio data from Next.js API / store slice on initial mount
   useEffect(() => {
     if (loadingStatus === "idle") {
       dispatch(fetchPortfolioDetails());
@@ -26,56 +27,40 @@ export default function MainPage() {
   }, [dispatch, loadingStatus]);
 
   return (
-    <div className="relative min-h-screen w-full bg-[#050811] text-slate-100 selection:bg-cyan-500 selection:text-black overflow-x-hidden">
-      {/* 
-        ========================================================================
-        CYBER / TECH BACKGROUND LAYOUT (Matching Pinterest Reference: pin.it/5hvuthIEx)
-        ========================================================================
-      */}
+    <div className="relative min-h-screen w-full bg-[#0b0f17] text-slate-100 selection:bg-amber-500 selection:text-black overflow-x-hidden">
+      {/* Background Ambient Radial Glow Elements (Matching Image 2) */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        {/* Top-Right Golden Glow */}
+        <div className="absolute -top-40 right-0 w-[600px] h-[600px] rounded-full bg-amber-500/[0.07] blur-[160px]" />
+        
+        {/* Left Side Subtle Glow */}
+        <div className="absolute top-1/3 -left-40 w-[500px] h-[500px] rounded-full bg-amber-600/[0.05] blur-[150px]" />
 
-      {/* Ambient Top & Corner Radial Glow Meshes */}
-      <div className="pointer-events-none fixed inset-0 z-0">
-        {/* Top-center large cyan glow */}
-        <div className="absolute left-1/2 -top-40 -translate-x-1/2 h-[650px] w-[850px] rounded-full bg-cyan-500/[0.12] blur-[160px]" />
-        
-        {/* Right side cyan/blue glow */}
-        <div className="absolute -right-40 top-1/4 h-[550px] w-[650px] rounded-full bg-blue-600/[0.10] blur-[150px]" />
-        
-        {/* Left side teal/cyan glow */}
-        <div className="absolute -left-40 top-2/3 h-[600px] w-[600px] rounded-full bg-teal-500/[0.08] blur-[160px]" />
-        
-        {/* Bottom subtle indigo aura */}
-        <div className="absolute left-1/3 bottom-0 h-[450px] w-[700px] rounded-full bg-indigo-600/[0.07] blur-[150px]" />
+        {/* Bottom Ambient Glow */}
+        <div className="absolute bottom-10 right-1/4 w-[600px] h-[600px] rounded-full bg-amber-500/[0.05] blur-[180px]" />
 
-        {/* Global cyber grid pattern overlay */}
-        <div className="absolute inset-0 cyber-grid opacity-35" />
+        {/* Global Tech Grid Pattern */}
+        <div className="absolute inset-0 bg-tech-grid opacity-35" />
       </div>
 
-      {/* Main Wrapper Container */}
-      <div className="relative z-10 mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
-        {/* 
-          Outer Glowing Cyber Glassmorphism Frame 
-          (Mirrors the outer glowing border frame seen in the Pinterest reference design)
-        */}
-        <div className="relative rounded-[2.5rem] border border-cyan-500/20 bg-[#070c17]/85 p-4 sm:p-8 md:p-12 shadow-[0_0_90px_rgba(6,182,212,0.12)] backdrop-blur-2xl">
-          {/* Subtle top frame accent light */}
-          <div className="pointer-events-none absolute inset-x-20 top-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
-          
-          {/* Navigation Bar */}
-          <Navbar onOpenContact={() => setIsContactOpen(true)} />
+      {/* Main Content Layout */}
+      <div className="relative z-10">
+        {/* Sticky/Fixed Navbar */}
+        <Navbar onOpenContact={() => setIsContactOpen(true)} />
 
-          {/* Page Sections */}
-          <main className="space-y-6 sm:space-y-12">
-            <Hero onOpenContact={() => setIsContactOpen(true)} />
-            <Skills />
-            <Projects />
-            <Experience />
-            <ContactCTA onOpenContact={() => setIsContactOpen(true)} />
-          </main>
+        {/* Core Sections */}
+        <main>
+          <Hero />
+          <About />
+          <Services />
+          <TechStack />
+          <Projects />
+          <Testimonials />
+          <Contact />
+        </main>
 
-          {/* Footer */}
-          <Footer />
-        </div>
+        {/* Footer */}
+        <Footer />
       </div>
 
       {/* Contact Dialog Modal */}
@@ -86,4 +71,3 @@ export default function MainPage() {
     </div>
   );
 }
-

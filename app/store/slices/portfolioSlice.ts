@@ -9,15 +9,38 @@ export interface Experience {
 }
 
 export interface PortfolioProject {
-  id?: string;
+  id: string;
   title: string;
+  category?: string;
   description: string;
   technologies: string[];
-  category?: string;
   image?: string;
   liveUrl?: string;
   githubUrl?: string;
   featured?: boolean;
+}
+
+export interface ServiceItem {
+  id: string;
+  title: string;
+  description: string;
+  icon: "code" | "server" | "layout" | "zap" | "database" | "shield";
+}
+
+export interface TechStackItem {
+  name: string;
+  badge: string;
+  category: string;
+  color?: string;
+}
+
+export interface TestimonialItem {
+  id: string;
+  name: string;
+  role: string;
+  company: string;
+  content: string;
+  avatar?: string;
 }
 
 export interface Education {
@@ -43,32 +66,39 @@ export interface SkillItem {
 export interface ProfileDetails {
   name: string;
   title: string;
-  headline?: string;
+  headline: string;
+  subheadline: string;
   location: string;
   email: string;
   phone: string;
-  linkedin: string;
-  github?: string;
-  twitter?: string;
-  summary: string;
-  bioShort?: string;
+  availability: string;
   yearsOfExperience: number;
-  avatar?: string;
-  status?: string;
-  stats?: {
-    yearsExperience: string;
+  avatar: string;
+  summary: string;
+  bioShort: string;
+  stats: {
     projectsCompleted: string;
     happyClients: string;
-    jobSuccess: string;
+    yearsExperience: string;
+    technologies: string;
+  };
+  socialLinks: {
+    github: string;
+    linkedin: string;
+    twitter: string;
+    email: string;
   };
 }
 
 export interface PortfolioState {
   profile: ProfileDetails;
+  services: ServiceItem[];
+  techStack: TechStackItem[];
+  projects: PortfolioProject[];
+  testimonials: TestimonialItem[];
   skills: SkillCategory[];
   featuredSkills: SkillItem[];
   experience: Experience[];
-  projects: PortfolioProject[];
   education: Education[];
   loading: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
@@ -78,164 +108,198 @@ export interface PortfolioState {
 const initialState: PortfolioState = {
   profile: {
     name: "Shubham Manta",
-    title: "Senior Full-Stack & Systems Engineer",
-    headline: "Senior Full-Stack & Systems Engineer",
+    title: "Software Engineer",
+    headline: "Building Scalable Solutions with Clean Code & Modern Tech",
+    subheadline:
+      "I'm a passionate Software Engineer who loves building high-performance web applications and solving real-world problems.",
     location: "Noida, Uttar Pradesh, India",
     email: "mantashubham@gmail.com",
-    phone: "+91-9736776853",
-    linkedin: "https://www.linkedin.com/in/shubham-manta-94570b224",
-    github: "https://github.com/shubisworld",
-    twitter: "https://x.com",
-    summary:
-      "Senior Full-Stack Engineer with around 8 years of experience building high-concurrency web platforms, distributed backends, and low-latency real-time systems across fintech and healthcare. Experienced in Node.js, NestJS, Next.js, PHP, WebSockets, event-driven architectures, applied AI, and database optimization.",
-    bioShort:
-      "I craft fast, modern & scalable web applications with clean code and great user experiences.",
+    phone: "+91 97367 76853",
+    availability: "Open to Work",
     yearsOfExperience: 8,
     avatar: "/images/ShubhamManta.jpg",
-    status: "Available for Freelance & Roles",
+    summary:
+      "Senior Software Engineer with around 8 years of experience building high-concurrency web platforms, distributed backends, and low-latency real-time systems across fintech and healthcare. Experienced in Node.js, NestJS, Next.js, PHP, WebSockets, event-driven architectures, applied AI, and database optimization.",
+    bioShort:
+      "I enjoy turning ideas into reality using modern technologies and best practices. When I'm not coding, you'll find me exploring emerging tech, reading, or traveling.",
     stats: {
+      projectsCompleted: "20+",
+      happyClients: "15+",
       yearsExperience: "8+",
-      projectsCompleted: "25+",
-      happyClients: "10+",
-      jobSuccess: "100%",
+      technologies: "10+",
+    },
+    socialLinks: {
+      github: "https://github.com/shubisworld",
+      linkedin: "https://www.linkedin.com/in/shubham-manta-94570b224",
+      twitter: "https://x.com",
+      email: "mantashubham@gmail.com",
     },
   },
+
+  services: [
+    {
+      id: "web-dev",
+      title: "Web Development",
+      description:
+        "Building responsive and performant web applications using modern frameworks and technologies.",
+      icon: "code",
+    },
+    {
+      id: "backend-dev",
+      title: "Backend Development",
+      description:
+        "Creating robust APIs and backend systems with security, scalability, and performance in mind.",
+      icon: "server",
+    },
+    {
+      id: "uiux-impl",
+      title: "UI/UX Implementation",
+      description:
+        "Converting designs into beautiful, intuitive, and interactive user interfaces.",
+      icon: "layout",
+    },
+    {
+      id: "perf-opt",
+      title: "Performance Optimization",
+      description:
+        "Improving application performance, optimizing queries, and enhancing user experience.",
+      icon: "zap",
+    },
+  ],
+
+  techStack: [
+    { name: "JavaScript", badge: "JS", category: "Languages", color: "#F7DF1E" },
+    { name: "TypeScript", badge: "TS", category: "Languages", color: "#3178C6" },
+    { name: "React", badge: "React", category: "Frontend", color: "#61DAFB" },
+    { name: "Next.js", badge: "Next.js", category: "Frontend", color: "#FFFFFF" },
+    { name: "Node.js", badge: "Node.js", category: "Backend", color: "#5FA04E" },
+    { name: "Express.js", badge: "ex", category: "Backend", color: "#FFFFFF" },
+    { name: "MongoDB", badge: "MongoDB", category: "Databases", color: "#47A248" },
+    { name: "PostgreSQL", badge: "PostgreSQL", category: "Databases", color: "#4169E1" },
+    { name: "Tailwind CSS", badge: "Tailwind CSS", category: "Frontend", color: "#38BDF8" },
+    { name: "Git", badge: "Git", category: "Tools", color: "#F05032" },
+  ],
+
+  projects: [
+    {
+      id: "dev-analytics",
+      title: "DevAnalytics",
+      category: "Fintech & Analytics",
+      description:
+        "Analytics dashboard for developers to track productivity, code metrics, and low-latency market order books.",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+      liveUrl: "https://fxview.com/global/",
+      githubUrl: "https://github.com/shubisworld",
+      featured: true,
+    },
+    {
+      id: "shop-sphere",
+      title: "ShopSphere",
+      category: "E-Commerce & Scalable APIs",
+      description:
+        "Modern e-commerce platform with cart, payments, real-time doctor-patient tracking, and order management.",
+      technologies: ["React", "Node.js", "MongoDB"],
+      liveUrl: "https://github.com/shubisworld",
+      githubUrl: "https://github.com/shubisworld",
+      featured: true,
+    },
+    {
+      id: "task-flow",
+      title: "TaskFlow",
+      category: "Productivity & Real-time",
+      description:
+        "Collaborative task management tool with real-time updates, team collaboration, and WebSocket features.",
+      technologies: ["React", "Express.js", "Socket.io"],
+      liveUrl: "https://career-admin.dev.vinove.com/",
+      githubUrl: "https://career-admin.dev.vinove.com/",
+      featured: true,
+    },
+  ],
+
+  testimonials: [
+    {
+      id: "test-1",
+      name: "Rohit Sharma",
+      role: "CTO",
+      company: "TechVision",
+      content:
+        "Shubham is an exceptional developer. He delivered high-quality work on time and exceeded our expectations. Highly recommended!",
+      avatar: "RS",
+    },
+    {
+      id: "test-2",
+      name: "Priya Mehta",
+      role: "Product Manager",
+      company: "InnovateX",
+      content:
+        "Working with Shubham was a great experience. He's professional, communicative, and his code quality is top-notch.",
+      avatar: "PM",
+    },
+    {
+      id: "test-3",
+      name: "Vikram Singh",
+      role: "Founder",
+      company: "StartupHub",
+      content:
+        "Shubham's technical skills and problem-solving ability helped our project succeed. I would love to work with him again.",
+      avatar: "VS",
+    },
+  ],
 
   featuredSkills: [
     {
       name: "React",
-      level: "Advanced",
-      percentage: 90,
+      level: "Expert",
+      percentage: 92,
       category: "Frontend",
-      icon: "react",
-      color: "#00d8fe",
+      color: "#61DAFB",
     },
     {
       name: "Next.js",
-      level: "Advanced",
-      percentage: 88,
+      level: "Expert",
+      percentage: 90,
       category: "Frontend",
-      icon: "nextjs",
-      color: "#ffffff",
+      color: "#FFFFFF",
     },
     {
       name: "TypeScript",
       level: "Advanced",
       percentage: 88,
       category: "Languages",
-      icon: "typescript",
-      color: "#3178c6",
+      color: "#3178C6",
     },
     {
       name: "Node.js",
       level: "Advanced",
       percentage: 86,
       category: "Backend",
-      icon: "nodejs",
-      color: "#68a063",
+      color: "#5FA04E",
     },
     {
       name: "Tailwind CSS",
-      level: "Advanced",
-      percentage: 90,
-      category: "Frontend",
-      icon: "tailwind",
-      color: "#38bdf8",
-    },
-    {
-      name: "PostgreSQL",
-      level: "Intermediate",
-      percentage: 78,
-      category: "Databases",
-      icon: "postgresql",
-      color: "#336791",
-    },
-    {
-      name: "MongoDB",
-      level: "Advanced",
-      percentage: 80,
-      category: "Databases",
-      icon: "mongodb",
-      color: "#47a248",
-    },
-    {
-      name: "NestJS",
-      level: "Advanced",
-      percentage: 88,
-      category: "Backend",
-      icon: "nestjs",
-      color: "#ea2845",
-    },
-    {
-      name: "WebSockets",
       level: "Expert",
       percentage: 92,
-      category: "Real-time",
-      icon: "websockets",
-      color: "#06b6d4",
+      category: "Frontend",
+      color: "#38BDF8",
     },
   ],
 
   skills: [
     {
       category: "Languages",
-      skills: [
-        "JavaScript (ES6+)",
-        "TypeScript",
-        "Python",
-        "PHP",
-        "SQL",
-        "HTML5",
-        "CSS3",
-      ],
+      skills: ["JavaScript", "TypeScript", "Python", "PHP", "SQL", "HTML5", "CSS3"],
     },
     {
-      category: "Backend & Architecture",
-      skills: [
-        "Node.js",
-        "NestJS",
-        "PHP",
-        "REST APIs",
-        "GraphQL",
-        "Microservices",
-        "Event-driven Architecture",
-      ],
+      category: "Backend & Systems",
+      skills: ["Node.js", "NestJS", "Express.js", "REST APIs", "GraphQL", "WebSockets"],
     },
     {
       category: "Frontend",
-      skills: [
-        "Next.js",
-        "React.js",
-        "Vue.js",
-        "Nuxt.js",
-        "Redux Toolkit",
-        "Pinia",
-        "SSR",
-        "Performance Optimization",
-      ],
-    },
-    {
-      category: "Real-time & AI",
-      skills: [
-        "WebSockets",
-        "LLM API Integration",
-        "Agent Workflows",
-        "Prompt-driven Automation",
-      ],
+      skills: ["Next.js", "React.js", "Tailwind CSS", "Redux Toolkit"],
     },
     {
       category: "Databases & Tools",
-      skills: [
-        "PostgreSQL",
-        "MongoDB",
-        "Redis",
-        "Sanity.io",
-        "Git",
-        "GitHub",
-        "Jira",
-        "Selenium",
-        "Autodesk Viewer APIs",
-      ],
+      skills: ["MongoDB", "PostgreSQL", "Redis", "Git", "GitHub"],
     },
   ],
 
@@ -250,9 +314,6 @@ const initialState: PortfolioState = {
         "Engineered a multi-tenant hospital admin portal with role-based access control and cross-entity workflows.",
         "Built real-time doctor-patient communication using WebSockets.",
         "Developed CareerPilot with Next.js, Python-integrated APIs, and WebSocket messaging.",
-        "Integrated agentic AI workflows and LLM-assisted features into internal product pipelines.",
-        "Built a browser-based 3D asset management tool using Autodesk Viewer APIs.",
-        "Designed REST APIs for media sharing, messaging, and real-time video communication.",
       ],
     },
     {
@@ -264,77 +325,7 @@ const initialState: PortfolioState = {
         "Designed and scaled cryptocurrency trading portals using React.js, Next.js, and WebSockets.",
         "Architected low-latency live market data pipelines with sub-second dashboard updates.",
         "Built financial dashboards with live order books, portfolio analytics, and candlestick charts.",
-        "Integrated MetaTrader and ActTrader execution gateways for order routing and settlement workflows.",
-        "Improved page performance through SSR, lazy loading, and memoized Redux Toolkit state.",
       ],
-    },
-    {
-      company: "Leo Software Pvt. Ltd.",
-      role: "Software Developer",
-      location: "Shimla, Himachal Pradesh, India",
-      duration: "Aug 2020 - Dec 2020",
-      responsibilities: [
-        "Built a student college portal using HTML and PHP.",
-        "Developed data-fetching, record-update, and form-submission workflows.",
-        "Standardized REST APIs and supported relational database integrity.",
-      ],
-    },
-    {
-      company: "Abaca Systems",
-      role: "Quality Analyst / ERP Engineer",
-      location: "Mohali, Punjab, India",
-      duration: "Oct 2017 - Oct 2019",
-      responsibilities: [
-        "Validated and supported ERP financial modules, including general ledgers, cashbooks, and profit-and-loss reporting.",
-        "Performed system testing, business requirement analysis, and production support.",
-      ],
-    },
-  ],
-
-  projects: [
-    {
-      id: "crypto-trading",
-      title: "Real-time Crypto Trading Ecosystem",
-      category: "Fintech & High-Concurrency",
-      description:
-        "High-concurrency trading platform integrating MetaTrader and ActTrader execution engines with live sub-second WebSocket ticker feeds, order book analytics, and interactive candlestick charts.",
-      technologies: ["Next.js", "TypeScript", "WebSockets", "Trading APIs", "Tailwind CSS"],
-      liveUrl: "https://fxview.com/global/",
-      githubUrl: "https://fxview.com/global/",
-      featured: true,
-    },
-    {
-      id: "telehealth-portal",
-      title: "Hospital & Telehealth Portal",
-      category: "Healthcare & Distributed Systems",
-      description:
-        "Multi-tenant enterprise healthcare solution featuring doctor-patient messaging, cross-entity appointment tracking, role-based access control, and low-latency WebSockets.",
-      technologies: ["Node.js", "NestJS", "WebSockets", "PostgreSQL", "RBAC"],
-      liveUrl: "https://github.com/shubisworld",
-      githubUrl: "https://github.com/shubisworld",
-      featured: true,
-    },
-    {
-      id: "headless-publishing",
-      title: "Headless Publishing Architecture",
-      category: "Content Management & Performance",
-      description:
-        "High-performance Next.js and Sanity.io CMS publishing platform featuring instant preview pipelines, content revalidation, and sub-100ms global SSR delivery.",
-      technologies: ["Next.js", "Sanity.io", "SSR", "TypeScript", "Tailwind CSS"],
-      liveUrl: "https://github.com/shubisworld",
-      githubUrl: "https://github.com/shubisworld",
-      featured: true,
-    },
-    {
-      id: "ai-careerpilot",
-      title: "CareerPilot & Agentic AI Workflows",
-      category: "Applied AI & Automation",
-      description:
-        "Intelligent career acceleration tool powered by Next.js, Python microservices, and LLM agentic pipelines for real-time interview prep, prompt automation, and workflow orchestration.",
-      technologies: ["Next.js", "Python", "OpenAI", "WebSockets", "FastAPI"],
-      liveUrl: "https://career-admin.dev.vinove.com/",
-      githubUrl: "https://career-admin.dev.vinove.com/",
-      featured: true,
     },
   ],
 
@@ -356,21 +347,16 @@ const initialState: PortfolioState = {
   lastFetched: null,
 };
 
-/**
- * Async Thunk to fetch portfolio details adhering to Next.js App standards.
- * Calls Next.js API route (/api/portfolio) on client or gracefully falls back.
- */
 export const fetchPortfolioDetails = createAsyncThunk<
   Partial<PortfolioState>,
   void,
   { rejectValue: string }
 >("portfolio/fetchPortfolioDetails", async (_, { rejectWithValue }) => {
   try {
-    // If running in browser, fetch from the Next.js API route
     if (typeof window !== "undefined") {
       const response = await fetch("/api/portfolio", {
         headers: {
-          "Accept": "application/json",
+          Accept: "application/json",
         },
       });
 
@@ -381,13 +367,10 @@ export const fetchPortfolioDetails = createAsyncThunk<
       const data = await response.json();
       return data;
     }
-
-    // SSR / Node environment fallback
     return initialState;
   } catch (err: unknown) {
     const message =
       err instanceof Error ? err.message : "Failed to fetch portfolio details";
-    // Return initial state to guarantee a flawless UI experience even if fetch fails
     return rejectWithValue(message);
   }
 });
@@ -402,27 +385,30 @@ const portfolioSlice = createSlice({
     ) => {
       Object.assign(state.profile, action.payload);
     },
-
-    setExperience: (state, action: PayloadAction<Experience[]>) => {
-      state.experience = action.payload;
+    setServices: (state, action: PayloadAction<ServiceItem[]>) => {
+      state.services = action.payload;
     },
-
+    setTechStack: (state, action: PayloadAction<TechStackItem[]>) => {
+      state.techStack = action.payload;
+    },
     setProjects: (state, action: PayloadAction<PortfolioProject[]>) => {
       state.projects = action.payload;
     },
-
+    setTestimonials: (state, action: PayloadAction<TestimonialItem[]>) => {
+      state.testimonials = action.payload;
+    },
+    setExperience: (state, action: PayloadAction<Experience[]>) => {
+      state.experience = action.payload;
+    },
     setSkills: (state, action: PayloadAction<SkillCategory[]>) => {
       state.skills = action.payload;
     },
-
     setFeaturedSkills: (state, action: PayloadAction<SkillItem[]>) => {
       state.featuredSkills = action.payload;
     },
-
     setEducation: (state, action: PayloadAction<Education[]>) => {
       state.education = action.payload;
     },
-
     resetStatus: (state) => {
       state.loading = "idle";
       state.error = null;
@@ -441,14 +427,23 @@ const portfolioSlice = createSlice({
           if (action.payload.profile) {
             state.profile = { ...state.profile, ...action.payload.profile };
           }
+          if (action.payload.services) {
+            state.services = action.payload.services;
+          }
+          if (action.payload.techStack) {
+            state.techStack = action.payload.techStack;
+          }
+          if (action.payload.projects) {
+            state.projects = action.payload.projects;
+          }
+          if (action.payload.testimonials) {
+            state.testimonials = action.payload.testimonials;
+          }
           if (action.payload.skills) {
             state.skills = action.payload.skills;
           }
           if (action.payload.featuredSkills) {
             state.featuredSkills = action.payload.featuredSkills;
-          }
-          if (action.payload.projects) {
-            state.projects = action.payload.projects;
           }
           if (action.payload.experience) {
             state.experience = action.payload.experience;
@@ -467,8 +462,11 @@ const portfolioSlice = createSlice({
 
 export const {
   updateProfile,
-  setExperience,
+  setServices,
+  setTechStack,
   setProjects,
+  setTestimonials,
+  setExperience,
   setSkills,
   setFeaturedSkills,
   setEducation,

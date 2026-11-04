@@ -12,8 +12,8 @@ import {
   Sparkles,
 } from "lucide-react";
 import { LinkedinIcon } from "./Icons";
-import { useAppSelector } from "@/lib/hooks";
-import { selectProfile } from "@/store";
+import { useAppSelector } from "../lib/hooks";
+import { selectProfile } from "../store";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -44,12 +44,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     setSubmitted(true);
     setTimeout(() => {
       window.location.href = `mailto:${profile?.email || "mantashubham@gmail.com"}?subject=${encodeURIComponent(
-        formData.subject || "Interview Inquiry"
+        formData.subject || "Project / Opportunity Inquiry"
       )}&body=${encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
       )}`;
       onClose();
-    }, 800);
+    }, 600);
   };
 
   return (
@@ -61,38 +61,38 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       />
 
       {/* Modal Dialog */}
-      <div className="relative w-full max-w-xl overflow-hidden rounded-3xl border border-cyan-500/35 bg-[#081326]/95 p-6 sm:p-8 shadow-[0_20px_70px_rgba(0,0,0,0.9),0_0_50px_rgba(6,182,212,0.25)] backdrop-blur-2xl z-10 animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-xl overflow-hidden rounded-3xl border border-white/10 bg-[#0e1422]/95 p-6 sm:p-8 shadow-[0_20px_70px_rgba(0,0,0,0.9),0_0_50px_rgba(245,158,11,0.15)] backdrop-blur-2xl z-10">
         {/* Ambient Top Glow */}
-        <div className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 h-40 w-80 rounded-full bg-cyan-500/20 blur-[80px]" />
+        <div className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 h-40 w-80 rounded-full bg-amber-500/15 blur-[80px]" />
 
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full border border-cyan-500/20 bg-[#0c1a30] text-slate-400 hover:border-cyan-400 hover:text-white transition-all"
+          className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-[#141b2c] text-slate-400 hover:border-amber-400 hover:text-white transition-all cursor-pointer"
         >
           <X className="h-4 w-4" />
         </button>
 
         {/* Modal Header */}
         <div className="mb-6">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-cyan-500/30 bg-cyan-950/50 px-3 py-1 text-xs font-semibold text-cyan-300">
-            <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-400">
+            <Sparkles className="h-3.5 w-3.5 text-amber-400" />
             <span>LET&apos;S CONNECT</span>
           </div>
           <h3 className="mt-2 text-2xl font-bold text-white">
             Get in touch with {profile?.name || "Shubham"}
           </h3>
           <p className="text-xs sm:text-sm text-slate-400 mt-1">
-            Available for Senior Full-Stack, Backend Architecture, and High-Concurrency opportunities.
+            Available for Senior Software Engineering, Full-Stack, and High-Concurrency opportunities.
           </p>
         </div>
 
         {/* Quick Contact Info Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
           {/* Email Card with Copy button */}
-          <div className="flex items-center justify-between rounded-xl border border-cyan-500/20 bg-[#060e1d] p-3 text-xs">
+          <div className="flex items-center justify-between rounded-xl border border-white/10 bg-[#121827] p-3 text-xs">
             <div className="flex items-center gap-2.5 overflow-hidden">
-              <Mail className="h-4 w-4 shrink-0 text-cyan-400" />
+              <Mail className="h-4 w-4 shrink-0 text-amber-400" />
               <div className="truncate">
                 <div className="text-[10px] text-slate-400">Email</div>
                 <div className="font-mono text-slate-200 truncate">
@@ -102,7 +102,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </div>
             <button
               onClick={copyEmail}
-              className="ml-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-cyan-500/25 bg-[#09172c] text-slate-300 hover:text-cyan-300"
+              className="ml-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-[#162033] text-slate-300 hover:text-amber-400 cursor-pointer"
               title="Copy Email"
             >
               {copied ? (
@@ -116,20 +116,20 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           {/* Phone Card */}
           <a
             href={`tel:${profile?.phone || "+919736776853"}`}
-            className="flex items-center gap-2.5 rounded-xl border border-cyan-500/20 bg-[#060e1d] p-3 text-xs hover:border-cyan-400/40 transition-colors"
+            className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-[#121827] p-3 text-xs hover:border-amber-400/40 transition-colors"
           >
-            <Phone className="h-4 w-4 shrink-0 text-cyan-400" />
+            <Phone className="h-4 w-4 shrink-0 text-amber-400" />
             <div>
               <div className="text-[10px] text-slate-400">Direct Phone</div>
               <div className="font-mono text-slate-200">
-                {profile?.phone || "+91-9736776853"}
+                {profile?.phone || "+91 97367 76853"}
               </div>
             </div>
           </a>
 
           {/* Location Card */}
-          <div className="flex items-center gap-2.5 rounded-xl border border-cyan-500/20 bg-[#060e1d] p-3 text-xs">
-            <MapPin className="h-4 w-4 shrink-0 text-cyan-400" />
+          <div className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-[#121827] p-3 text-xs">
+            <MapPin className="h-4 w-4 shrink-0 text-amber-400" />
             <div>
               <div className="text-[10px] text-slate-400">Location</div>
               <div className="text-slate-200 font-medium">
@@ -140,10 +140,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
           {/* LinkedIn Card */}
           <a
-            href={profile?.linkedin || "https://www.linkedin.com/in/shubham-manta-94570b224"}
+            href={profile?.socialLinks?.linkedin || "https://linkedin.com"}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2.5 rounded-xl border border-cyan-500/20 bg-[#060e1d] p-3 text-xs hover:border-cyan-400/40 text-cyan-300 transition-colors"
+            className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-[#121827] p-3 text-xs hover:border-amber-400/40 text-amber-400 transition-colors"
           >
             <LinkedinIcon className="h-4 w-4 shrink-0" />
             <div>
@@ -166,7 +166,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="Jane Doe"
-                className="w-full rounded-xl border border-cyan-500/20 bg-[#060f20] px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400"
+                className="w-full rounded-xl border border-white/10 bg-[#121827] px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none focus:ring-1 focus:ring-amber-400"
               />
             </div>
             <div>
@@ -179,7 +179,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="jane@company.com"
-                className="w-full rounded-xl border border-cyan-500/20 bg-[#060f20] px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400"
+                className="w-full rounded-xl border border-white/10 bg-[#121827] px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none focus:ring-1 focus:ring-amber-400"
               />
             </div>
           </div>
@@ -193,8 +193,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               required
               value={formData.subject}
               onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-              placeholder="Full-Stack Engineer Opportunity / Project Inquiry"
-              className="w-full rounded-xl border border-cyan-500/20 bg-[#060f20] px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400"
+              placeholder="Software Engineer Role / Project Inquiry"
+              className="w-full rounded-xl border border-white/10 bg-[#121827] px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none focus:ring-1 focus:ring-amber-400"
             />
           </div>
 
@@ -207,17 +207,17 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               required
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              placeholder="Hi Shubham, we reviewed your portfolio and would love to discuss a role..."
-              className="w-full rounded-xl border border-cyan-500/20 bg-[#060f20] px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400"
+              placeholder="Hi Shubham, let's discuss an opportunity..."
+              className="w-full rounded-xl border border-white/10 bg-[#121827] px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none focus:ring-1 focus:ring-amber-400"
             />
           </div>
 
           <button
             type="submit"
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 py-3 text-xs font-bold text-white shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all hover:shadow-[0_0_30px_rgba(6,182,212,0.7)] hover:scale-[1.01]"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-amber-500 text-black py-3 text-xs font-bold shadow-lg shadow-amber-500/20 hover:bg-amber-400 transition-all cursor-pointer"
           >
             <Send className="h-3.5 w-3.5" />
-            <span>{submitted ? "Opening Mail Client..." : "Send Message"}</span>
+            <span>{submitted ? "Redirecting..." : "Send Message"}</span>
           </button>
         </form>
       </div>
