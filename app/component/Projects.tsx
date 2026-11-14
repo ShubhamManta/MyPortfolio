@@ -9,13 +9,12 @@ import { selectProjects } from "../store";
 export default function Projects() {
   const projects = useAppSelector(selectProjects);
 
-  // High-fidelity UI mockup renderer tailored for each project
   const renderProjectMockup = (projectId: string) => {
     switch (projectId) {
       case "fxview":
         return (
           <div className="relative w-full h-44 bg-[#080d16] p-3 flex flex-col justify-between overflow-hidden font-mono text-[10px]">
-            {/* Window Header */}
+
             <div className="flex items-center justify-between pb-2 border-b border-white/10">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-red-500/80" />
@@ -30,7 +29,6 @@ export default function Projects() {
               </div>
             </div>
 
-            {/* Trading Pair & Stats */}
             <div className="grid grid-cols-3 gap-2 my-1.5">
               <div className="rounded bg-[#0e1626] p-1.5 border border-white/5">
                 <span className="text-slate-400 text-[8px] block">EUR / USD</span>
@@ -46,7 +44,6 @@ export default function Projects() {
               </div>
             </div>
 
-            {/* Live Candlestick / Graph */}
             <div className="h-14 w-full flex items-end gap-1.5 pt-1">
               {[45, 60, 50, 75, 65, 85, 70, 95, 80, 100, 90, 110, 95, 120, 105, 130].map(
                 (val, idx) => (
@@ -64,7 +61,7 @@ export default function Projects() {
       case "crypto-market":
         return (
           <div className="relative w-full h-44 bg-[#0a0f1a] p-3 flex flex-col justify-between overflow-hidden font-mono text-[10px]">
-            {/* Window Header */}
+
             <div className="flex items-center justify-between pb-2 border-b border-white/10">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-red-500/80" />
@@ -74,7 +71,6 @@ export default function Projects() {
               <span className="text-amber-400 text-[9px] font-bold">LIVE CRYPTO EXCHANGE</span>
             </div>
 
-            {/* Trading Controls & Order Book */}
             <div className="grid grid-cols-3 gap-2 my-1.5">
               <div className="rounded bg-[#121929] p-1.5 border border-white/5">
                 <span className="text-slate-400 text-[8px] block">BTC / USDT</span>
@@ -87,8 +83,6 @@ export default function Projects() {
                 SELL ORDER
               </div>
             </div>
-
-            {/* Animated Ticker Bars */}
             <div className="h-14 w-full flex items-end gap-1.5 pt-1">
               {[60, 40, 75, 55, 90, 70, 85, 100, 75, 110, 85, 95, 115, 105, 125, 140].map(
                 (val, idx) => (
@@ -106,7 +100,7 @@ export default function Projects() {
       case "erp-web-app":
         return (
           <div className="relative w-full h-44 bg-[#090e18] p-3 flex flex-col justify-between overflow-hidden font-mono text-[10px]">
-            {/* Window Header */}
+
             <div className="flex items-center justify-between pb-2 border-b border-white/10">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-red-500/80" />
@@ -115,8 +109,6 @@ export default function Projects() {
               </div>
               <span className="text-slate-400 text-[9px]">ERP Manager • Balance Sheet</span>
             </div>
-
-            {/* ERP Modules */}
             <div className="grid grid-cols-3 gap-2 my-auto">
               <div className="rounded bg-[#121a2c] p-2 border border-white/5 space-y-1">
                 <span className="text-[8px] text-slate-400 block uppercase">Sales Invoices</span>
@@ -134,8 +126,6 @@ export default function Projects() {
                 <div className="w-full h-1 bg-emerald-500/30 rounded" />
               </div>
             </div>
-
-            {/* Balance Sheet Status Bar */}
             <div className="flex items-center justify-between px-2 py-1.5 rounded bg-[#101726] border border-white/5 text-[9px]">
               <span className="text-slate-400">Net Balance Sheet</span>
               <span className="text-emerald-400 font-bold">+ $71,350 (Audited)</span>
@@ -146,7 +136,7 @@ export default function Projects() {
       case "career-pilot":
         return (
           <div className="relative w-full h-44 bg-[#0a0f19] p-3 flex flex-col justify-between overflow-hidden font-mono text-[10px]">
-            {/* Window Header */}
+
             <div className="flex items-center justify-between pb-2 border-b border-white/10">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-red-500/80" />
@@ -155,8 +145,6 @@ export default function Projects() {
               </div>
               <span className="text-purple-400 text-[9px] font-bold">CareerPilot Portals</span>
             </div>
-
-            {/* Dual Portal Cards */}
             <div className="grid grid-cols-2 gap-2 my-auto">
               <div className="rounded bg-[#141b2c] p-2.5 border border-purple-500/20 space-y-1">
                 <span className="text-[8px] text-purple-300 font-bold block uppercase">
@@ -173,8 +161,6 @@ export default function Projects() {
                 <span className="text-slate-400 text-[8px] block">Institutions Oversight</span>
               </div>
             </div>
-
-            {/* Bottom Status Ticker */}
             <div className="flex items-center justify-between px-2 py-1.5 rounded bg-[#101728] border border-white/5 text-[9px]">
               <span className="text-slate-400">System Pipeline</span>
               <span className="text-cyan-400 font-medium">Portals Live &amp; Connected</span>
@@ -185,7 +171,7 @@ export default function Projects() {
       case "ers-health":
         return (
           <div className="relative w-full h-44 bg-[#090f18] p-3 flex flex-col justify-between overflow-hidden font-mono text-[10px]">
-            {/* Window Header */}
+
             <div className="flex items-center justify-between pb-2 border-b border-white/10">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-red-500/80" />
@@ -194,8 +180,6 @@ export default function Projects() {
               </div>
               <span className="text-emerald-400 text-[9px] font-bold">ERS Healthcare Admin</span>
             </div>
-
-            {/* Medical Entities Grid */}
             <div className="grid grid-cols-3 gap-2 my-auto">
               <div className="rounded bg-[#121b2b] p-2 border border-white/5 text-center">
                 <span className="text-[8px] text-slate-400 block uppercase">Patients</span>
@@ -213,8 +197,6 @@ export default function Projects() {
                 <span className="text-[8px] text-slate-500 block">Networks</span>
               </div>
             </div>
-
-            {/* Pulse Rate Monitor */}
             <div className="flex items-center justify-between px-2 py-1.5 rounded bg-[#0f1724] border border-white/5 text-[9px]">
               <span className="text-slate-400">Referrals &amp; Medications</span>
               <span className="text-emerald-400 font-bold">● Active EMR Stream</span>
@@ -244,7 +226,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-16 md:py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header row with "View All Projects ->" */}
+
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-1">
@@ -266,21 +248,21 @@ export default function Projects() {
           </a>
         </div>
 
-        {/* Responsive Projects Grid */}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
             <div
               key={project.id}
               className="rounded-2xl bg-[#111724]/90 border border-white/5 overflow-hidden hover:border-amber-500/40 hover:bg-[#151c2c] transition-all duration-300 hover:-translate-y-2.5 shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col group cursor-default"
             >
-              {/* Card Header Preview Area with Smooth Scale on Hover */}
+
               <div className="relative border-b border-white/5 overflow-hidden">
                 <div className="transform group-hover:scale-105 transition-transform duration-500 ease-out">
                   {renderProjectMockup(project.id)}
                 </div>
               </div>
 
-              {/* Card Body */}
+
               <div className="p-6 flex flex-col flex-1 justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
@@ -323,7 +305,7 @@ export default function Projects() {
                     {project.description}
                   </p>
 
-                  {/* Dual portal links if available */}
+
                   {project.extraUrl && (
                     <div className="mb-4">
                       <a
@@ -339,7 +321,7 @@ export default function Projects() {
                   )}
                 </div>
 
-                {/* Tech Pills */}
+
                 <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-white/5">
                   {project.technologies.map((tech) => (
                     <span

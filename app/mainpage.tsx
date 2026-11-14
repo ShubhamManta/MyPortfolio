@@ -28,27 +28,22 @@ export default function MainPage() {
 
   return (
     <div className="relative min-h-screen w-full bg-[#0b0f17] text-slate-100 selection:bg-amber-500 selection:text-black overflow-x-hidden">
-      {/* Background Ambient Radial Glow Elements (Matching Image 2) */}
+
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        {/* Top-Right Golden Glow */}
-        <div className="absolute -top-40 right-0 w-[600px] h-[600px] rounded-full bg-amber-500/[0.07] blur-[160px]" />
-        
-        {/* Left Side Subtle Glow */}
-        <div className="absolute top-1/3 -left-40 w-[500px] h-[500px] rounded-full bg-amber-600/[0.05] blur-[150px]" />
 
-        {/* Bottom Ambient Glow */}
-        <div className="absolute bottom-10 right-1/4 w-[600px] h-[600px] rounded-full bg-amber-500/[0.05] blur-[180px]" />
+        <div className="absolute -top-40 right-0 w-150 h-150 rounded-full bg-amber-500/[0.07] blur-[160px]" />
 
-        {/* Global Tech Grid Pattern */}
+        <div className="absolute top-1/3 -left-40 w-125 h-125 rounded-full bg-amber-600/5 blur-[150px]" />
+
+        <div className="absolute bottom-10 right-1/4 w-150 h-150 rounded-full bg-amber-500/5 blur-[180px]" />
+
         <div className="absolute inset-0 bg-tech-grid opacity-35" />
       </div>
 
-      {/* Main Content Layout */}
       <div className="relative z-10">
-        {/* Sticky/Fixed Navbar */}
+
         <Navbar onOpenContact={() => setIsContactOpen(true)} />
 
-        {/* Core Sections */}
         <main>
           <Hero />
           <About />
@@ -59,11 +54,9 @@ export default function MainPage() {
           <Contact />
         </main>
 
-        {/* Footer */}
         <Footer />
       </div>
 
-      {/* Contact Dialog Modal */}
       <ContactModal
         isOpen={isContactOpen}
         onClose={() => setIsContactOpen(false)}
